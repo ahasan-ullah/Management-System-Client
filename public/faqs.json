@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "question": "What is an Employee Management System?",
+    "answer": "An Employee Management System is a tool that helps organizations manage employee information, track attendance, handle payroll, and more from a centralized platform."
+  },
+  {
+    "id": 2,
+    "question": "Can I integrate this system with payroll software?",
+    "answer": "Yes, our Employee Management System seamlessly integrates with popular payroll software like QuickBooks and ADP for smooth salary processing."
+  },
+  {
+    "id": 3,
+    "question": "Is there a mobile app available?",
+    "answer": "Yes, our system is available on iOS and Android, allowing employees and managers to access features on the go."
+  },
+  {
+    "id": 4,
+    "question": "What is the pricing structure?",
+    "answer": "We offer flexible plans including Free, Standard, and Premium tiers. Visit the pricing page for a detailed comparison."
+  },
+  {
+    "id": 5,
+    "question": "Do you provide customer support?",
+    "answer": "Yes, we provide 24/7 customer support via chat, email, and phone to assist you with any issues or queries."
+  }
+]

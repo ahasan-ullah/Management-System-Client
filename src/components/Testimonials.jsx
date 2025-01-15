@@ -18,7 +18,7 @@ const Testimonials = () => {
   return (
     <section className="my-20">
       <p className="text-center text-blue-400">Testimonials</p>
-      <h2 className="text-center text-4xl font-bold">What our Clients Says</h2>
+      <h2 className="text-center text-4xl font-bold">What Our Clients Says</h2>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
