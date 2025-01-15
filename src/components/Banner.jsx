@@ -11,7 +11,7 @@ import { Pagination } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-20">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
           <img
