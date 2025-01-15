@@ -1,0 +1,50 @@
+[
+  {
+      "_id": "643020a1f5a7e52ce1e8fa70",
+      "name": "Alice Brown",
+      "details": "The employee management system is user-friendly and very intuitive. It has streamlined our HR processes significantly. Highly recommended for growing organizations!",
+      "rating": 5
+  },
+  {
+      "_id": "643020bcf5a7e52ce1e8fa71",
+      "name": "Chris Green",
+      "details": "The system provides all the basic features we need, but it lacks advanced analytics. Customer support could also be improved.",
+      "rating": 3
+  },
+  {
+      "_id": "643020d3f5a7e52ce1e8fa72",
+      "name": "Emma Wilson",
+      "details": "This is an outstanding tool for managing employees. It offers everything from attendance tracking to performance reviews. It saved us a lot of time and effort!",
+      "rating": 5
+  },
+  {
+      "_id": "643020eaf5a7e52ce1e8fa73",
+      "name": "James Taylor",
+      "details": "The system is good but could use a better user interface. It's a bit complex for new users, but once you get the hang of it, it's effective.",
+      "rating": 4
+  },
+  {
+      "_id": "64302101f5a7e52ce1e8fa74",
+      "name": "Sophia Anderson",
+      "details": "While the features are extensive, the software has some bugs that need attention. I've faced issues with report generation several times.",
+      "rating": 2
+  },
+  {
+      "_id": "64302117f5a7e52ce1e8fa75",
+      "name": "Michael Clark",
+      "details": "The employee management system integrates well with our payroll software and makes managing attendance a breeze. The customer support team is always helpful.",
+      "rating": 5
+  },
+  {
+      "_id": "6430212df5a7e52ce1e8fa76",
+      "name": "Laura Martin",
+      "details": "It offers a lot of features, but the setup process is very time-consuming. Would appreciate more setup guides or tutorials for new customers.",
+      "rating": 3
+  },
+  {
+      "_id": "64302144f5a7e52ce1e8fa77",
+      "name": "Ethan Walker",
+      "details": "The mobile app version needs improvement, but overall, the system has made our employee management much smoother. Very satisfied with the desktop version.",
+      "rating": 4
+  }
+]
