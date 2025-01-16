@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer bg-neutral text-neutral-content p-10">
+    <footer>
+      <div className="footer bg-neutral text-neutral-content p-10 w-full">
         <aside>
           <svg
             width="50"
@@ -58,16 +58,16 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-      </footer>
-      <footer className="footer footer-center bg-base-300 text-base-content p-4">
+      </div>
+      <div className="footer footer-center bg-base-300 text-base-content p-4">
         <aside>
           <p>
             Copyright © {new Date().getFullYear()} - All right reserved by Manage Us
             Industries Ltd
           </p>
         </aside>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

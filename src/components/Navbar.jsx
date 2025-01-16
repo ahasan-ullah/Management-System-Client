@@ -70,10 +70,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="space-x-3">
-            <Link className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
+            <Link to={'/login'} className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
               Login
             </Link>
-            <Link className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
+            <Link to={'/register'} className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
               Register
             </Link>
           </div>
