@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import faqImage from "../assets/faqs.jpg";
 
 const Faqs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -17,26 +18,38 @@ const Faqs = () => {
           Frequently Asked Questions
         </h2>
 
-        {/* FAQ List */}
-        <div className="join join-vertical w-full mx-auto mt-8">
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="collapse collapse-arrow join-item border-base-300 border"
-            >
-              <input
-                type="radio"
-                name="faq-accordion"
-                defaultChecked={faq.id === 1}
-              />
-              <div className="collapse-title text-xl font-medium">
-                {faq.question}
-              </div>
-              <div className="collapse-content">
-                <p>{faq.answer}</p>
+        <div className="hero">
+          <div className="hero-content flex-col lg:flex-row">
+            <div className="space-y-5 md:hidden">
+              <img src={faqImage} className="rounded-lg" />
+            </div>
+            {/* FAQ List */}
+            <div className="md:w-3/5">
+              <div className="join join-vertical w-full mx-auto mt-8">
+                {faqs.map((faq) => (
+                  <div
+                    key={faq.id}
+                    className="collapse collapse-arrow join-item border-base-300 border"
+                  >
+                    <input
+                      type="radio"
+                      name="faq-accordion"
+                      defaultChecked={faq.id === 1}
+                    />
+                    <div className="collapse-title text-xl font-medium">
+                      {faq.question}
+                    </div>
+                    <div className="collapse-content">
+                      <p>{faq.answer}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+            <div className="space-y-5 md:w-2/5 hidden md:flex">
+              <img src={faqImage} className="rounded-lg" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
