@@ -12,12 +12,13 @@ const Faqs = () => {
     <section className="py-16 bg-base-100">
       <div className="container mx-auto text-center">
         {/* Heading */}
-        <p className="text-center text-blue-400">Faqs</p>
+        <p className="text-center text-blue-400">FAQs</p>
         <h2 className="text-center text-4xl font-bold">
-          Some Common Questions
+          Frequently Asked Questions
         </h2>
+
         {/* FAQ List */}
-        <div className="join join-vertical w-full max-w-3xl mx-auto mt-8">
+        <div className="join join-vertical w-full mx-auto mt-8">
           {faqs.map((faq) => (
             <div
               key={faq.id}
