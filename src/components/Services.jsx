@@ -31,7 +31,7 @@ const Services = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="swiper-container"
+          className="swiper-container h-56"
         >
           {services.map((service) => (
             <SwiperSlide key={service.id} className="p-4">
