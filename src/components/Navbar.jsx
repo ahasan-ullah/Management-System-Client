@@ -3,7 +3,19 @@ import { Link } from "react-router-dom";
 import AuthContext from "../provider/AuthContext";
 
 const Navbar = () => {
-  const {user}=useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogin = () => {
+    logout().then((res) => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Logout Successfull",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }).catch((error) => console.log(error));
+  };
   const links = (
     <>
       <li>
@@ -55,10 +67,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user.photoURL}
-                />
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
               </div>
             </div>
             <ul
@@ -66,16 +75,22 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Logout</a>
+                <button onClick={handleLogin}>Logout</button>
               </li>
             </ul>
           </div>
         ) : (
           <div className="space-x-3">
-            <Link to={'/login'} className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
+            <Link
+              to={"/login"}
+              className="btn btn-active btn-neutral hover:bg-transparent hover:text-black"
+            >
               Login
             </Link>
-            <Link to={'/register'} className="btn btn-active btn-neutral hover:bg-transparent hover:text-black">
+            <Link
+              to={"/register"}
+              className="btn btn-active btn-neutral hover:bg-transparent hover:text-black"
+            >
               Register
             </Link>
           </div>

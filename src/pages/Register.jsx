@@ -41,8 +41,6 @@ const Register = () => {
       photo: image,
       password: data.password,
     };
-    console.log(userData);
-    console.log(name,image);
 
     // adding user data to database
     axios.post('http://localhost:5000/users', userData)
