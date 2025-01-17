@@ -39,7 +39,6 @@ const Register = () => {
       salary: data.salary,
       designation: data.designation,
       photo: image,
-      password: data.password,
     };
 
     // adding user data to database
