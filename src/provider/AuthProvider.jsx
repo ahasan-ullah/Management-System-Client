@@ -30,9 +30,11 @@ const AuthProvider = ({children}) => {
   }
 
   //update user method to add name and photo while registering
-  const updateUser=(updateData)=>{
+  const updateUser=(name,photo)=>{
     setLoading(true);
-    return updateProfile(auth.currentUser,updateData);
+    return updateProfile(auth.currentUser, {
+      displayName: name, photoURL: photo
+  });
   }
 
   //logout method

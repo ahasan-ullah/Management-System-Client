@@ -30,8 +30,9 @@ const Register = () => {
       },
     });
     const image=res.data.data.display_url;
+    const name=data.name;
     const userData = {
-      name: data.name,
+      name: name,
       email: data.email,
       role: data.role,
       bankAcc: data.bankAcc,
@@ -40,6 +41,8 @@ const Register = () => {
       photo: image,
       password: data.password,
     };
+    console.log(userData);
+    console.log(name,image);
 
     // adding user data to database
     axios.post('http://localhost:5000/users', userData)
@@ -47,7 +50,7 @@ const Register = () => {
 
     //firebase authentications
     createUser(data.email, data.password).then((result) => {
-      updateUser(data.name, image)
+      updateUser(name, image)
         .then(() => {
           reset();
           Swal.fire({
