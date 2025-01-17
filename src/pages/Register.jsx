@@ -163,7 +163,7 @@ const Register = () => {
               />
               {/* Error messages */}
               {errors.password && (
-                <p className="text-red-600">{errors.password.message}</p>
+                <p className="text-red-500">{errors.password.message}</p>
               )}
             </div>
 
