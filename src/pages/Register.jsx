@@ -1,7 +1,12 @@
 import Lottie from "lottie-react";
-import registerAnimation from '../assets/animation-file/register-animation.json'
+import registerAnimation from "../assets/animation-file/register-animation.json";
 import { Link } from "react-router-dom";
+
+const imageKey = import.meta.env.VITE_IMAGE_KEY;
+const imageAPI = `https://api.imgbb.com/1/upload?key=${imageKey}`;
+
 const Register = () => {
+  const image
   return (
     <div className="hero min-h-screen mt-16">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
@@ -9,7 +14,9 @@ const Register = () => {
           <Lottie animationData={registerAnimation}></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-lg shrink-0">
-          <h1 className="text-center text-3xl md:text-5xl font-bold mt-5">Register now!</h1>
+          <h1 className="text-center text-3xl md:text-5xl font-bold mt-5">
+            Register now!
+          </h1>
           <form className="card-body">
             {/* name field */}
             <div className="form-control">
@@ -74,14 +81,9 @@ const Register = () => {
             {/* photo field */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text">Photo</span>
               </label>
-              <input
-                type="photo"
-                placeholder="Photo URL"
-                className="input input-bordered"
-                required
-              />
+              <input type="file" className="file-input file-input-bordered" />
             </div>
             {/* pass field */}
             <div className="form-control">
