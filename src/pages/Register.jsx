@@ -29,8 +29,8 @@ const Register = () => {
         "Content-Type": "multipart/form-data",
       },
     });
-    const image=res.data.data.display_url;
-    const name=data.name;
+    const image = res.data.data.display_url;
+    const name = data.name;
     const userData = {
       name: name,
       email: data.email,
@@ -43,8 +43,18 @@ const Register = () => {
     };
 
     // adding user data to database
-    axios.post('http://localhost:5000/users', userData)
-    .then(res=>console.log(res))
+    axios
+      .post("http://localhost:5000/users", userData)
+      .then((res) => console.log(res))
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Email Already Exists",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
 
     //firebase authentications
     createUser(data.email, data.password).then((result) => {
@@ -61,7 +71,7 @@ const Register = () => {
           navigate("/");
         })
         .catch((error) => console.log(error));
-    });
+    }).catch(err=>console.log(err));
   };
 
   return (
