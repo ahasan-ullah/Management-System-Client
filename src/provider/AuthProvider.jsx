@@ -63,10 +63,7 @@ const AuthProvider = ({children}) => {
       unsubscribe();
     }
   },[])
-
-  if(loading){
-    return <LoadingPage></LoadingPage>
-  }
+  console.log(user);
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
