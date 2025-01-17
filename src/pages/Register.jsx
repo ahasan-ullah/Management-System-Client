@@ -24,13 +24,13 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const imageFile={image: data.photo[0]};
+    const imageFile = { image: data.photo[0] };
     console.log(imageFile);
-    const res=await axios.post(imageAPI, imageFile, {
+    const res = await axios.post(imageAPI, imageFile, {
       headers: {
-        'Content-Type' : 'multipart/form-data'
-      }
-    })
+        "Content-Type": "multipart/form-data",
+      },
+    });
     console.log(res.data);
     // createUser(data.email, data.password).then((result) => {
     //   const loggedUser = result.user;
@@ -132,10 +132,11 @@ const Register = () => {
               <label className="label">
                 <span className="label-text">Photo</span>
               </label>
-              <input 
-              type="file" 
-              {...register("photo", {required:true})}
-              className="file-input file-input-bordered" />
+              <input
+                type="file"
+                {...register("photo", { required: true })}
+                className="file-input file-input-bordered"
+              />
             </div>
             {/* pass field */}
             <div className="form-control">
@@ -144,12 +145,28 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                {...register("password", {required:true})}
+                {...register("password", {
+                  required: true,
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                  pattern: {
+                    value:
+                      /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$/,
+                    message:
+                      "Password must include uppercase, lowercase, number, and special character",
+                  },
+                })}
                 placeholder="Password"
                 className="input input-bordered"
-                required
               />
+              {/* Error messages */}
+              {errors.password && (
+                <p className="text-red-600">{errors.password.message}</p>
+              )}
             </div>
+
             <div className="form-control mt-6">
               <button className="btn btn-neutral">Register</button>
             </div>
