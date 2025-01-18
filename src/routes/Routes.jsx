@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import WorkSheet from "../components/WorkSheet";
+import DashboardIntro from "../components/DashboardIntro";
 
 const routes = createBrowserRouter([
   {
@@ -33,12 +34,18 @@ const routes = createBrowserRouter([
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
-    children: ([
+    children: [
       {
-        path: '/dashboard/worksheet',
-        element: <WorkSheet></WorkSheet>
-      }
-    ])
+        path: "/dashboard",
+        element: (
+            <DashboardIntro></DashboardIntro>
+        ),
+      },
+      {
+        path: "/dashboard/worksheet",
+        element: <WorkSheet></WorkSheet>,
+      },
+    ],
   },
 ]);
 

@@ -16,13 +16,12 @@ const Dashboard = () => {
           params: { email: `${user.email}` },
         })
         .then((res) => {
-          setUser(res.data); // Assuming the response is an array of user objects
+          setUser(res.data);
         })
         .catch((err) => console.error(err));
     }
   }, [user.email]);
 
-  // Checking if userDB has data
   const links = (
     <>
       {userDB.length > 0 && userDB[0].role === "Employee" && (
