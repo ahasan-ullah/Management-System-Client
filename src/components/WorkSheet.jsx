@@ -58,11 +58,11 @@ const WorkSheet = () => {
   return (
     <div>
       <h2 className="text-center text-3xl font-bold">Work Sheet</h2>
-      <div className="p-3 grid grid-cols-12">
+      <div className="p-3 md:grid md:grid-cols-12">
         {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="card-body col-span-4"
+          className="card-body md:col-span-4"
         >
           {/* task field */}
           <div className="form-control">
@@ -115,7 +115,7 @@ const WorkSheet = () => {
         </form>
 
         {/* Table */}
-        <div className="overflow-x-auto mt-5 col-span-8">
+        <div className="overflow-x-auto mt-5 md:col-span-8">
           <table className="table w-full">
             <thead>
               <tr>
@@ -132,18 +132,20 @@ const WorkSheet = () => {
                   <td>{task.hourWorked}</td>
                   <td>{task.date}</td>
                   <td>
-                    <button
-                      onClick={() => openEditModal(task)}
-                      className="btn btn-sm btn-warning mr-2"
-                    >
-                      <FaEdit /> Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteTask(task.id)}
-                      className="btn btn-sm btn-error"
-                    >
-                      <MdDelete /> Delete
-                    </button>
+                    <div className="flex">
+                      <button
+                        onClick={() => openEditModal(task)}
+                        className="btn btn-xs md:btn-sm btn-warning mr-2"
+                      >
+                        <FaEdit /> <p className="hidden md:block">Edit</p>
+                      </button>
+                      <button
+                        onClick={() => handleDeleteTask(task.id)}
+                        className="btn btn-xs md:btn-sm btn-error"
+                      >
+                        <MdDelete /> <p className="hidden md:block">Delete</p>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
