@@ -57,8 +57,9 @@ const WorkSheet = () => {
   const [newDate, setNewDate] = useState(null);
   const [newTaskType, setNewTaskType] = useState(null);
   const [newHourWorked, setNewHourWorked] = useState(null);
-
+  const [taskId, setTaskId] = useState(null);
   const getTaskData = (id) => {
+    setTaskId(id);
     axios
       .get("http://localhost:5000/tasks", {
         params: { id: `${id}` },
@@ -72,12 +73,36 @@ const WorkSheet = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    const updatedData={
+    const updatedData = {
       taskType: newTaskType,
       hourWorked: newHourWorked,
-      date: newDate.toLocaleDateString("en-CA")
-    }
-    console.log(updatedData);
+      date: newDate.toLocaleDateString("en-CA"),
+    };
+
+    axios
+      .put("http://localhost:5000/tasks", updatedData, {
+        params: { id: taskId },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Task Updated",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something went wrong while updating the task.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
 
   return (
