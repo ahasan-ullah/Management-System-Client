@@ -1,59 +1,45 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useContext } from "react";
+import AuthContext from "../provider/AuthContext";
 
 const Dashboard = () => {
+  const {user}=useContext(AuthContext);
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm();
 
+  const date = watch('date');
+
   const onSubmit = async (data) => {
     const taskData = {
-      name: data.name,
-      email: data.email,
-      role: data.role,
-      bankAcc: data.bankAcc,
-      salary: data.salary,
-      designation: data.designation,
+      taskType: data.taskType,
+      hourWorked: data.hourWorked,
+      date: data.date.toLocaleDateString("en-CA"),
+      email: user.email
     };
-
     // adding user data to database
-    // axios
-    //   .post("http://localhost:5000/users", userData)
-    //   .then((res) => console.log(res))
-    //   .catch((error) => {
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "error",
-    //       title: "Email Already Exists",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //   });
-  };
-
-  const handleDeleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-    // Mock API call to delete from DB
-    console.log("Task deleted from DB:", id);
-  };
-
-  const openEditModal = (task) => {
-    setEditingTask(task);
-    setModalOpen(true);
-  };
-
-  const handleUpdateTask = () => {
-    setTasks(
-      tasks.map((task) => (task.id === editingTask.id ? editingTask : task))
-    );
-    setModalOpen(false);
-    // Mock API call to update in DB
-    console.log("Task updated in DB:", editingTask);
+    axios
+      .post("http://localhost:5000/tasks", taskData)
+      .then((res) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Task Added",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+      });
   };
 
   return (
@@ -68,7 +54,7 @@ const Dashboard = () => {
               {/* task field */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Role</span>
+                  <span className="label-text">Task Type</span>
                 </label>
                 <select
                   {...register("taskType", { required: true })}
@@ -103,8 +89,8 @@ const Dashboard = () => {
                   <span className="label-text">Date</span>
                 </label>
                 <DatePicker
-                  selected={Date.now()}
-                  {...register("hourWorked", { required: true })}
+                  selected={watch("date")||null}
+                  onChange={(date) => setValue("date", date)}
                   className="input input-bordered w-full"
                   required
                 />
@@ -152,60 +138,6 @@ const Dashboard = () => {
               </table>
             </div>
           </div>
-
-          {/* Modal */}
-        {/* {isModalOpen && (
-          <div className="modal modal-open">
-            <div className="modal-box">
-              <h3 className="font-bold text-lg">Edit Task</h3>
-
-              <div className="space-y-4 mt-4">
-                <select
-                  name="taskType"
-                  value={editingTask.taskType}
-                  onChange={(e) =>
-                    setEditingTask({ ...editingTask, taskType: e.target.value })
-                  }
-                  className="select select-bordered w-full"
-                >
-                  <option value="Sales">Sales</option>
-                  <option value="Support">Support</option>
-                  <option value="Content">Content</option>
-                  <option value="Paper-work">Paper-work</option>
-                </select>
-
-                <input
-                  type="number"
-                  name="hoursWorked"
-                  value={editingTask.hoursWorked}
-                  onChange={(e) =>
-                    setEditingTask({
-                      ...editingTask,
-                      hoursWorked: e.target.value,
-                    })
-                  }
-                  placeholder="Hours Worked"
-                  className="input input-bordered w-full"
-                />
-
-                <DatePicker
-                  selected={editingTask.date}
-                  onChange={(date) => setEditingTask({ ...editingTask, date })}
-                  className="input input-bordered w-full"
-                />
-              </div>
-
-              <div className="modal-action">
-                <button onClick={handleUpdateTask} className="btn btn-primary">
-                  Update
-                </button>
-                <button onClick={() => setModalOpen(false)} className="btn">
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        )} */}
         </div>
       </div>
     </div>
