@@ -49,7 +49,10 @@ const EmployeeList = () => {
   const handleDetails = (user) => {
     navigate('/employee-details', {
       state: {
-        email: `${user.email}`
+        name: `${user.name}`,
+        email: `${user.email}`,
+        photo: `${user.photo}`,
+        designation: `${user.designation}`,
       },
     });
   };
