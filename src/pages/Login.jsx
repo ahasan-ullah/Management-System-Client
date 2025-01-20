@@ -52,7 +52,7 @@ const Login = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-lg shrink-0">
             <h1 className="text-center text-3xl md:text-5xl font-bold mt-5">
-              Register now!
+              Login now!
             </h1>
             <form onSubmit={handleLogin} className="card-body">
               {/* email field */}
