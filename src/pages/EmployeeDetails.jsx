@@ -55,14 +55,6 @@ const EmployeeDetails = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex justify-center items-center">
-          <Link
-            to={"/dashboard/employee-list"}
-            className="btn btn-neutral mt-10"
-          >
-            Back
-          </Link>
-        </div>
       </div>
     );
   };
@@ -89,6 +81,14 @@ const EmployeeDetails = () => {
         </div>
       </div>
       <MyBarChart />
+      <div className="flex justify-center items-center">
+          <Link
+            to={"/dashboard/employee-list"}
+            className="btn btn-neutral mt-10"
+          >
+            Back
+          </Link>
+        </div>
     </div>
   );
 };
