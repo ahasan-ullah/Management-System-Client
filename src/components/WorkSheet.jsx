@@ -105,6 +105,33 @@ const WorkSheet = () => {
       });
   };
 
+  const handleDelete=(id)=>{
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/tasks`,{
+          params: {id: id}
+        }).then(res=>{
+          if(res.statusText==='OK'){
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your task has been deleted.",
+              icon: "success"
+            });
+          }
+        })
+      }
+    });
+  }
+
   return (
     <div>
       <h2 className="text-center text-3xl font-bold">Work Sheet</h2>
@@ -193,7 +220,7 @@ const WorkSheet = () => {
                         <FaEdit /> <p className="hidden md:block">Edit</p>
                       </button>
                       <button
-                        onClick={() => handleDeleteTask(task.id)}
+                        onClick={() => handleDelete(task._id)}
                         className="btn btn-xs md:btn-sm btn-error"
                       >
                         <MdDelete /> <p className="hidden md:block">Delete</p>
