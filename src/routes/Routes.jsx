@@ -10,6 +10,7 @@ import DashboardIntro from "../components/DashboardIntro";
 import PaymentHistory from "../components/PaymentHistory";
 import EmployeeList from "../components/EmployeeList";
 import EmployeeDetails from "../pages/EmployeeDetails";
+import Progress from "../components/Progress";
 
 const routes = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/dashboard/progress",
-        element: <PaymentHistory></PaymentHistory>,
+        element: <Progress></Progress>,
       },
     ],
   },
