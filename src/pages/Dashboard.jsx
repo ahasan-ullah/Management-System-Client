@@ -34,6 +34,16 @@ const Dashboard = () => {
           </li>
         </>
       )}
+      {userDB.length > 0 && userDB[0].role === "HR" && (
+        <>
+          <li className="p-3">
+            <NavLink className="btn btn-neutral w-full" to="/dashboard/employee-list">Employee List</NavLink>
+          </li>
+          <li className="p-3">
+            <NavLink className="btn btn-neutral w-full" to="/dashboard/progress">Progress</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 

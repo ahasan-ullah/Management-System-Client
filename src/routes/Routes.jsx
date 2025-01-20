@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import WorkSheet from "../components/WorkSheet";
 import DashboardIntro from "../components/DashboardIntro";
 import PaymentHistory from "../components/PaymentHistory";
+import EmployeeList from "../components/EmployeeList";
 
 const routes = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const routes = createBrowserRouter([
       },
       {
         path: "/dashboard/payment-history",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "/dashboard/employee-list",
+        element: <EmployeeList></EmployeeList>,
+      },
+      {
+        path: "/dashboard/progress",
         element: <PaymentHistory></PaymentHistory>,
       },
     ],
