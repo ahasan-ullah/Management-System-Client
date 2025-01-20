@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const EmployeeList = () => {
   const [users, setUsers] = useState([]);
   const [salary, setSalary] = useState(null);
   const [email, setEmail] = useState(null);
+  const navigate=useNavigate();
 
   useEffect(() => {
     // Fetch user data from API
@@ -41,14 +43,15 @@ const EmployeeList = () => {
         });
       })
       .catch((error) => {});
-
-    console.log(payroll);
   };
 
   // Handle Details button click
   const handleDetails = (user) => {
-    alert(`Showing details of ${user.name}`);
-    // Implement details logic here
+    navigate('/employee-details', {
+      state: {
+        email: `${user.email}`
+      },
+    });
   };
 
   const handleVerify = (user) => {

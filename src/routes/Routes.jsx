@@ -9,6 +9,7 @@ import WorkSheet from "../components/WorkSheet";
 import DashboardIntro from "../components/DashboardIntro";
 import PaymentHistory from "../components/PaymentHistory";
 import EmployeeList from "../components/EmployeeList";
+import EmployeeDetails from "../pages/EmployeeDetails";
 
 const routes = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const routes = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+      {
+        path: "employee-details",
+        element: <EmployeeDetails></EmployeeDetails>,
       },
     ],
   },
