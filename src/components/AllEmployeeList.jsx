@@ -6,19 +6,18 @@ import { ImCross } from "react-icons/im";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const EmployeeList = () => {
+const AllEmployeeList = () => {
   const [users, setUsers] = useState([]);
   const [salary, setSalary] = useState(null);
   const [email, setEmail] = useState(null);
   const navigate=useNavigate();
 
   useEffect(() => {
+    // Fetch user data from API
     axios.get("http://localhost:5000/users").then((res) => {
-      const employees = res.data.filter(user => user.role === 'Employee');
-      setUsers(employees);
+      setUsers(res.data);
     });
   }, [users]);
-
 
   // Handle Pay button click
   const handlePay = (e) => {
@@ -225,4 +224,4 @@ const EmployeeList = () => {
   );
 };
 
-export default EmployeeList;
+export default AllEmployeeList;
