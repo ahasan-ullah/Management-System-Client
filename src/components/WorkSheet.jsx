@@ -105,7 +105,7 @@ const WorkSheet = () => {
       });
   };
 
-  const handleDelete=(id)=>{
+  const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -113,23 +113,25 @@ const WorkSheet = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/tasks`,{
-          params: {id: id}
-        }).then(res=>{
-          if(res.statusText==='OK'){
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your task has been deleted.",
-              icon: "success"
-            });
-          }
-        })
+        axios
+          .delete(`http://localhost:5000/tasks`, {
+            params: { id: id },
+          })
+          .then((res) => {
+            if (res.statusText === "OK") {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your task has been deleted.",
+                icon: "success",
+              });
+            }
+          });
       }
     });
-  }
+  };
 
   return (
     <div>
