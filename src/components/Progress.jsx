@@ -37,7 +37,7 @@ const WorkRecords = () => {
     }
     if (selectedMonth) {
       filtered = filtered.filter((record) => {
-        const recordMonth = new Date(record.date).getMonth() + 1; // Month is 0-indexed
+        const recordMonth = new Date(record.date).getMonth() + 1;
         return recordMonth === parseInt(selectedMonth);
       });
     }
