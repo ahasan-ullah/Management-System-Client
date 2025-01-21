@@ -26,7 +26,25 @@ const AllEmployeeList = () => {
   }
 
   const handleFire=(user)=>{
-    
+    const fireStatus = true;
+    axios
+      .patch(
+        "http://localhost:5000/users",
+        { fireStatus },
+        {
+          params: { id: `${user._id}` },
+        }
+      )
+      .then((res) => {
+        if (res.statusText === "OK") {
+          Swal.fire({
+            title: "Updated!",
+            text: "Employee Fired",
+            icon: "success",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   const columns = [
@@ -84,9 +102,10 @@ const AllEmployeeList = () => {
                 <td className="border">
                   <button
                     className="btn btn-neutral btn-sm"
+                    disabled={row.original.isFired}
                     onClick={() => handleFire(row.original)}
                   >
-                    Fire
+                    {row.original.isFired?'Fired':'Fire'}
                   </button>
                 </td>
               </tr>
