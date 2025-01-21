@@ -1,44 +1,77 @@
-import { useContext } from "react";
-import authContext from "../provider/AuthContext";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import loginAnimation from "../assets/animation-file/login-animation.json";
+import axios from "axios";
+import AuthContext from "../provider/AuthContext";
 
 const Login = () => {
-  const { loginUser } = useContext(authContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const {loginUser}=useContext(AuthContext);
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    loginUser(email, password)
-      .then((result) => {
+  
+    try {
+      const response = await axios.get("http://localhost:5000/users", {
+        params: { email },
+      });
+  
+      const userData = response.data;
+  
+      if (!userData) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "User not found",
+          text: "No user registered with this email",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
+      }
+  
+      if (userData.isFired) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Access Denied",
+          text: "Your account has been disabled. Contact Admin for support.",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else {
+        await loginUser(email, password);
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Login Successfull",
+          title: "Login Successful",
           showConfirmButton: false,
           timer: 1500,
         });
         navigate(from, { replace: true });
-      })
-      .catch((err) => {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Invalid Credentials",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Login Failed",
+        text: error?.response?.data?.message || "Invalid credentials",
+        showConfirmButton: false,
+        timer: 1500,
       });
+    }
   };
+
 
   return (
     <>
