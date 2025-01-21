@@ -39,7 +39,7 @@ const Login = () => {
         return;
       }
   
-      if (userData.isFired) {
+      if (userData[0].isFired) {
         Swal.fire({
           position: "center",
           icon: "error",
