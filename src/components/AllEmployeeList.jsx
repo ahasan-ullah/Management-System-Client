@@ -22,7 +22,27 @@ const AllEmployeeList = () => {
   }, [users]);
 
   const handleMakeHR=(user)=>{
-
+    if(user.role!=='HR'){
+    const HR='HR';
+    axios
+      .patch(
+        "http://localhost:5000/users",
+        { HR },
+        {
+          params: { id: `${user._id}` },
+        }
+      )
+      .then((res) => {
+        if (res.statusText === "OK") {
+          Swal.fire({
+            title: "Updated!",
+            text: "Promoted to HR",
+            icon: "success",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+    }
   }
 
   const handleFire=(user)=>{
