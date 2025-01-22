@@ -52,6 +52,9 @@ const Dashboard = () => {
           <li className="p-3">
             <NavLink className="btn btn-neutral w-full" to="/dashboard/pay-roll">Payroll</NavLink>
           </li>
+          <li className="p-3">
+            <NavLink className="btn btn-neutral w-full" to="/dashboard/feedback">Feedback</NavLink>
+          </li>
         </>
       )}
     </>
