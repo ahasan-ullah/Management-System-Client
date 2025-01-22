@@ -76,6 +76,10 @@ const AllEmployeeList = () => {
       accessorKey: "designation",
       header: "Designation",
     },
+    {
+      accessorKey: "salary",
+      header: "Salary",
+    },
   ];
 
   const table = useReactTable({
