@@ -13,6 +13,7 @@ import EmployeeDetails from "../pages/EmployeeDetails";
 import Progress from "../components/Progress";
 import AllEmployeeList from "../components/AllEmployeeList";
 import Payroll from "../components/Payroll";
+import ContactUs from "../pages/ContactUs";
 
 const routes = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
       {
         path: "employee-details",
         element: <EmployeeDetails></EmployeeDetails>,
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs></ContactUs>,
       },
     ],
   },
