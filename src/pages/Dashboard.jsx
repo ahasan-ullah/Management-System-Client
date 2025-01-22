@@ -50,7 +50,7 @@ const Dashboard = () => {
             <NavLink className="btn btn-neutral w-full" to="/dashboard/all-employee-list">Employee List</NavLink>
           </li>
           <li className="p-3">
-            <NavLink className="btn btn-neutral w-full" to="/dashboard/progress">Progress</NavLink>
+            <NavLink className="btn btn-neutral w-full" to="/dashboard/pay-roll">Payroll</NavLink>
           </li>
         </>
       )}

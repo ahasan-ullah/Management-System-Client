@@ -12,6 +12,7 @@ import EmployeeList from "../components/EmployeeList";
 import EmployeeDetails from "../pages/EmployeeDetails";
 import Progress from "../components/Progress";
 import AllEmployeeList from "../components/AllEmployeeList";
+import Payroll from "../components/Payroll";
 
 const routes = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/all-employee-list",
         element: <AllEmployeeList></AllEmployeeList>,
+      },
+      {
+        path: "/dashboard/pay-roll",
+        element: <Payroll></Payroll>,
       },
     ],
   },
