@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { BiMessageDetail } from "react-icons/bi";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form=e.target;
-    const email=form.email.value;
-    const message=form.message.value;
+    const form = e.target;
+    const email = form.email.value;
+    const message = form.message.value;
 
-    const feedback={
+    const feedback = {
       email,
-      message
-    }
-    console.log(feedback);
+      message,
+    };
+    axios
+      .post("http://localhost:5000/feedback", feedback)
+      .then((res) => {
+        Swal.fire({
+          title: "Thanks!",
+          text: "Thaks for the feedback",
+          icon: "success",
+        });
+        form.reset();
+      })
+      .catch((error) => {});
   };
 
   return (
