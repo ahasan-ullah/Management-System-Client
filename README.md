@@ -2,6 +2,40 @@
 
 A comprehensive web-based solution to streamline the management of employee workflows, salaries, and organizational data. This application caters to distinct user roles: **Admins**, **HRs**, and **Employees**, providing them tailored functionality to ensure a smooth workflow.
 
+## 🎯 Project Features
+
+1. **Role-specific Dashboards**  
+   - Separate dashboards for Employees, HRs, and Admins with tailored features.  
+
+2. **Advanced Authentication**  
+   - Email/password-based registration with role-based options (Employee/HR).  
+   - Conditional navigation based on authentication status and user roles.  
+
+3. **Dynamic Task/Work Log Management**  
+   - Employees can log tasks with CRUD operations (create, edit, delete).  
+
+4. **Employee Verification & Salary Management**  
+   - HR can verify employees, manage salary details, and process monthly/yearly payment history.  
+
+5. **Responsive Design**  
+   - Fully responsive layouts optimized for mobile, tablet, and desktop devices.  
+
+6. **Professional UI with Material Tailwind**  
+   - Clean and modern design using **Material Tailwind** for a user-friendly experience.  
+
+7. **Real-Time Charts**  
+   - Dynamic charts for visualizing employee salary trends (e.g., bar charts).  
+
+8. **Secure Backend**  
+   - JWT token-based API route protection with middleware for role verification.  
+
+9. **Comprehensive Error Handling**  
+   - Notifications for form validation errors, authentication events, and CRUD operations using SweetAlert.
+
+10. **Optimized Data Fetching with TanStack Query**  
+    - Fast and efficient data fetching and caching for a seamless user experience.
+
+
 ---
 
 ## 🔑 Key Features  
