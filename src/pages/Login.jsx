@@ -93,7 +93,6 @@ const Login = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
         Swal.fire({
           title: "Error",
           icon: "error",

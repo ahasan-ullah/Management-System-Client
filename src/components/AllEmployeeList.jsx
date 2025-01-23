@@ -40,7 +40,7 @@ const AllEmployeeList = () => {
             });
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {});
     }
   };
 
@@ -63,7 +63,7 @@ const AllEmployeeList = () => {
           });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {});
   };
 
   const columns = [

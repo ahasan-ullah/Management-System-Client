@@ -15,7 +15,7 @@ const Navbar = () => {
           icon: "success",
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {});
   };
   const links = (
     <>

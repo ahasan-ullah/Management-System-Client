@@ -67,9 +67,9 @@ const Register = () => {
             });
             navigate("/");
           })
-          .catch((error) => console.log(error));
+          .catch((error) =>{});
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {});
   };
 
   const handleGoogleLogin = () => {
@@ -105,7 +105,6 @@ const Register = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
         Swal.fire({
           title: 'Error',
           icon: "error",
