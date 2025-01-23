@@ -6,16 +6,17 @@ const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
   const [payments, setPayments] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/payments", {
-  //       params: { email: user.email },
-  //     })
-  //     .then((res) => {
-  //       setPayments(res.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, [user.email]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/pay-roll", {
+        params: { email: user.email },
+      })
+      .then((res) => {
+        const payment=res.data.filter(p=>p.isPaid==='true')
+        setPayments(payment);
+      })
+      .catch((err) => console.error(err));
+  }, [user.email]);
 
   return (
     <div className="p-6">
@@ -24,15 +25,17 @@ const PaymentHistory = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Date (Month-Year) </th>
               <th>Amount</th>
+              <th>Transaction ID</th>
             </tr>
           </thead>
           <tbody>
             {payments.map((payment) => (
               <tr key={payment._id}>
-                <td>{new Date(payment.date).toLocaleDateString()}</td>
-                <td>${payment.amount.toFixed(2)}</td>
+                <td>{payment.month}-{payment.year}</td>
+                <td>${payment.salary}</td>
+                <td>{payment.transactionId}</td>
               </tr>
             ))}
           </tbody>
