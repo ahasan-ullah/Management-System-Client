@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -63,7 +64,7 @@ const Payroll = () => {
             </tr>
           </thead>
           <tbody>
-            {payrolls.map((payroll) => (
+            {payrolls?.map((payroll) => (
               <tr key={payroll._id}>
                 <td className="border">{payroll.email}</td>
                 <td className="border">{payroll.month}</td>

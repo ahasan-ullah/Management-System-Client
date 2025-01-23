@@ -1,36 +1,23 @@
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { TiTick } from "react-icons/ti";
-import { ImCross } from "react-icons/im";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../provider/AuthContext";
 
-const fetchUsers = async () => {
-  const { data } = await axios.get("http://localhost:5000/users");
-  return data;
-};
-
 const AllEmployeeList = () => {
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [salary, setSalary] = useState(null);
   const [email, setEmail] = useState(null);
   const navigate=useNavigate();
   const {fireUser}=useContext(AuthContext);
 
-  const { data: users } = useQuery({
-    queryKey: ["users"],
-    queryFn: fetchUsers,
-    refetchOnWindowFocus: false,
-  });
-
-  // useEffect(() => {
-  //   // Fetch user data from API
-  //   axios.get("http://localhost:5000/users").then((res) => {
-  //     setUsers(res.data);
-  //   });
-  // }, [users]);
+  useEffect(() => {
+    // Fetch user data from API
+    axios.get("http://localhost:5000/users").then((res) => {
+      setUsers(res.data);
+    });
+  }, [users]);
 
   const handleMakeHR=(user)=>{
     if(user.role!=='HR'){

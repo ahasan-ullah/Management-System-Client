@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -30,7 +31,7 @@ const Feedback = () => {
             </tr>
           </thead>
           <tbody>
-            {feedbacks.map((feedback) => (
+            {feedbacks?.map((feedback) => (
               <tr key={feedback._id}>
                 <td className="border">{feedback.email}</td>
                 <td className="border">{feedback.message}</td>
