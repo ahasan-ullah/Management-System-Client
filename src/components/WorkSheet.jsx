@@ -96,11 +96,8 @@ const WorkSheet = () => {
       })
       .catch((err) => {
         Swal.fire({
-          position: "center",
           icon: "error",
           title: "Something went wrong while updating the task.",
-          showConfirmButton: false,
-          timer: 1500,
         });
       });
   };

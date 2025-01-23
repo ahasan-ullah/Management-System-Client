@@ -19,7 +19,8 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUser, googleLogin } = useContext(authContext);
+  const { createUser, updateUser, googleLogin } =
+    useContext(authContext);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -44,14 +45,12 @@ const Register = () => {
     // adding user data to database
     axios
       .post("http://localhost:5000/users", userData)
-      .then((res) => console.log(res))
+      .then((res) => {})
       .catch((error) => {
         Swal.fire({
-          position: "center",
+          title: "Error",
+          text: "Email Already Exists",
           icon: "error",
-          title: "Email Already Exists",
-          showConfirmButton: false,
-          timer: 1500,
         });
       });
 
@@ -62,11 +61,9 @@ const Register = () => {
           .then(() => {
             reset();
             Swal.fire({
-              position: "center",
+              title: "Welcome",
+              text: "Registration Successfull",
               icon: "success",
-              title: "Registration Successfull",
-              showConfirmButton: false,
-              timer: 1500,
             });
             navigate("/");
           })
@@ -75,9 +72,51 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleGoogleLogin=()=>{
-    console.log('logged in');
-  }
+  const handleGoogleLogin = () => {
+    console.log("logged in");
+
+    googleLogin()
+      .then((result) => {
+        const user=result.user;
+        const userData = {
+          name: user.displayName,
+          email: user.email,
+          role: "Employee",
+          bankAcc: '',
+          salary: '',
+          designation: '',
+          photo: user.photoURL
+        };
+
+        console.log(userData);
+    
+        // adding user data to database
+        axios
+          .post("http://localhost:5000/users", userData)
+          .then((res) => {})
+          .catch((error) => {
+            Swal.fire({
+              title: "Error",
+              text: "Email Already Exists",
+              icon: "error",
+            });
+          });
+        navigate("/");
+        Swal.fire({
+          title: 'Welcome',
+          text: "Registration Successful",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: 'Error',
+          icon: "error",
+          title: "Registration Unsuccessful",
+        });
+      });
+  };
 
   return (
     <>
