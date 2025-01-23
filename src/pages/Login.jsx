@@ -10,7 +10,7 @@ import AuthContext from "../provider/AuthContext";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { loginUse, googleLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin } = useContext(AuthContext);
 
   const from = location.state?.from?.pathname || "/";
 
