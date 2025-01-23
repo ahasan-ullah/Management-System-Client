@@ -10,12 +10,19 @@ const Payroll = () => {
   },[payrolls]);
 
 
-  const handlePay=(id)=>{
-    console.log(id)
+  const handlePay=(id,month,year)=>{
+    const transactionId = Math.floor(10000000 + Math.random() * 90000000);
+    const data={
+      isPaid: 'true',
+      month: month,
+      year: year,
+      transactionId: transactionId
+    }
+
     axios
       .patch(
         "http://localhost:5000/pay-roll",
-        { isPaid: "true" },
+        {data} ,
         {
           params: { id: `${id}` },
         }
@@ -53,7 +60,7 @@ const Payroll = () => {
                 <td className="border">{payroll.month}</td>
                 <td className="border">{payroll.year}</td>
                 <td className="border">{payroll.salary}</td>
-                <td className="border"><button onClick={()=>{handlePay(payroll._id)}} disabled={payroll.isPaid==='true'} className="btn btn-neutral btn-sm">{payroll.isPaid?'Paid':'Pay'}</button></td>
+                <td className="border"><button onClick={()=>{handlePay(payroll._id,payroll.month,payroll.year)}} disabled={payroll.isPaid==='true'} className="btn btn-neutral btn-sm">{payroll.isPaid?'Paid':'Pay'}</button></td>
               </tr>
             ))}
           </tbody>
