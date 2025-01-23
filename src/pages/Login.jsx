@@ -10,7 +10,7 @@ import AuthContext from "../provider/AuthContext";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const {loginUser}=useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -19,59 +19,46 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-  
+
     try {
       const response = await axios.get("http://localhost:5000/users", {
         params: { email },
       });
-  
+
       const userData = response.data;
-  
+
       if (!userData) {
         Swal.fire({
-          position: "center",
+          title: "Not Found!",
+          text: "Users not found",
           icon: "error",
-          title: "User not found",
-          text: "No user registered with this email",
-          showConfirmButton: false,
-          timer: 1500,
         });
         return;
       }
-  
+
       if (userData[0].isFired) {
         Swal.fire({
-          position: "center",
-          icon: "error",
           title: "Access Denied",
           text: "Your account has been disabled. Contact Admin for support.",
-          showConfirmButton: false,
-          timer: 2000,
+          icon: "error",
         });
       } else {
         await loginUser(email, password);
         Swal.fire({
-          position: "center",
+          title: "Welcome",
+          text: "Login Successful",
           icon: "success",
-          title: "Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
         });
         navigate(from, { replace: true });
       }
     } catch (error) {
-      console.error("Error during login:", error);
       Swal.fire({
-        position: "center",
-        icon: "error",
         title: "Login Failed",
-        text: error?.response?.data?.message || "Invalid credentials",
-        showConfirmButton: false,
-        timer: 1500,
+        text: "Invalid credentials",
+        icon: "error",
       });
     }
   };
-
 
   return (
     <>

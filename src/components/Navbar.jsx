@@ -7,26 +7,26 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogin = () => {
-    logout().then((res) => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Logout Successfull",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }).catch((error) => console.log(error));
+    logout()
+      .then((res) => {
+        Swal.fire({
+          title: "Thank You",
+          text: "Logout Successfull",
+          icon: "success",
+        });
+      })
+      .catch((error) => console.log(error));
   };
   const links = (
     <>
-    <li>
-        <NavLink to={'/'}>Home</NavLink>
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={'/dashboard'}>Dashboard</NavLink>
+        <NavLink to={"/dashboard"}>Dashboard</NavLink>
       </li>
       <li>
-        <NavLink to={'/contact-us'}>Contact Us</NavLink>
+        <NavLink to={"/contact-us"}>Contact Us</NavLink>
       </li>
     </>
   );
