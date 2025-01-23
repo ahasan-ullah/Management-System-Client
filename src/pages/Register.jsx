@@ -19,7 +19,7 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUser } = useContext(authContext);
+  const { createUser, updateUser, googleLogin } = useContext(authContext);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -56,22 +56,28 @@ const Register = () => {
       });
 
     //firebase authentications
-    createUser(data.email, data.password).then((result) => {
-      updateUser(name, image)
-        .then(() => {
-          reset();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Registration Successfull",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
-        })
-        .catch((error) => console.log(error));
-    }).catch(err=>console.log(err));
+    createUser(data.email, data.password)
+      .then((result) => {
+        updateUser(name, image)
+          .then(() => {
+            reset();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Registration Successfull",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((err) => console.log(err));
   };
+
+  const handleGoogleLogin=()=>{
+    console.log('logged in');
+  }
 
   return (
     <>
@@ -219,6 +225,11 @@ const Register = () => {
               </div>
             </form>
             <div className="card-body -mt-10">
+              <div className="form-control">
+                <button onClick={handleGoogleLogin} className="btn btn-neutral">
+                  Register with google
+                </button>
+              </div>
               <p className="text-gray-500 text-sm">
                 Already have any account?{" "}
                 <Link to={"/login"} className="text-black">

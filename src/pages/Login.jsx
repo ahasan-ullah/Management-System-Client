@@ -10,7 +10,7 @@ import AuthContext from "../provider/AuthContext";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { loginUser } = useContext(AuthContext);
+  const { loginUse, googleLogin } = useContext(AuthContext);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -60,6 +60,10 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin=()=>{
+    console.log('logged in');
+  }
+
   return (
     <>
       <Helmet>
@@ -106,6 +110,9 @@ const Login = () => {
               </div>
             </form>
             <div className="card-body -mt-10">
+              <div className="form-control">
+                <button onClick={handleGoogleLogin} className="btn btn-neutral">Login with google</button>
+              </div>
               <p className="text-gray-500 text-sm">
                 Don't have any account?{" "}
                 <Link to={"/register"} className="text-black">
