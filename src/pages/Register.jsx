@@ -73,8 +73,6 @@ const Register = () => {
   };
 
   const handleGoogleLogin = () => {
-    console.log("logged in");
-
     googleLogin()
       .then((result) => {
         const user=result.user;
@@ -87,8 +85,6 @@ const Register = () => {
           designation: '',
           photo: user.photoURL
         };
-
-        console.log(userData);
     
         // adding user data to database
         axios

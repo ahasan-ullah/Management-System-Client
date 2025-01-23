@@ -60,9 +60,47 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin=()=>{
-    console.log('logged in');
-  }
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        const userData = {
+          name: user.displayName,
+          email: user.email,
+          role: "Employee",
+          bankAcc: "",
+          salary: "",
+          designation: "",
+          photo: user.photoURL,
+        };
+
+        // adding user data to database
+        axios
+          .post("http://localhost:5000/users", userData)
+          .then((res) => {})
+          .catch((error) => {
+            Swal.fire({
+              title: "Error",
+              text: "Email Already Exists",
+              icon: "error",
+            });
+          });
+        navigate("/");
+        Swal.fire({
+          title: "Welcome",
+          text: "Login Successful",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Error",
+          icon: "error",
+          title: "Login Unsuccessful",
+        });
+      });
+  };
 
   return (
     <>
@@ -111,7 +149,9 @@ const Login = () => {
             </form>
             <div className="card-body -mt-10">
               <div className="form-control">
-                <button onClick={handleGoogleLogin} className="btn btn-neutral">Login with google</button>
+                <button onClick={handleGoogleLogin} className="btn btn-neutral">
+                  Login with google
+                </button>
               </div>
               <p className="text-gray-500 text-sm">
                 Don't have any account?{" "}
