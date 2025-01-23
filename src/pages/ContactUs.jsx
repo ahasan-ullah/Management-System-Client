@@ -16,7 +16,7 @@ const ContactUs = () => {
       message,
     };
     axios
-      .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/feedback", feedback)
+      .post("https://management-system-server-amber.vercel.app/feedback", feedback)
       .then((res) => {
         Swal.fire({
           title: "Thanks!",

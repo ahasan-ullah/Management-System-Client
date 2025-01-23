@@ -15,7 +15,7 @@ const AllEmployeeList = () => {
 
   useEffect(() => {
     // Fetch user data from API
-    axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users").then((res) => {
+    axios.get("https://management-system-server-amber.vercel.app/users").then((res) => {
       setUsers(res.data);
     });
   }, [users]);
@@ -25,7 +25,7 @@ const AllEmployeeList = () => {
       const HR = "HR";
       axios
         .patch(
-          "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users",
+          "https://management-system-server-amber.vercel.app/users",
           { HR },
           {
             params: { id: `${user._id}` },
@@ -48,7 +48,7 @@ const AllEmployeeList = () => {
     const fireStatus = true;
     axios
       .patch(
-        "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users",
+        "https://management-system-server-amber.vercel.app/users",
         { fireStatus },
         {
           params: { id: `${user._id}` },

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const fetchFeedbacks = async () => {
-  const { data } = await axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/feedback");
+  const { data } = await axios.get("https://management-system-server-amber.vercel.app/feedback");
   return data;
 };
 
@@ -17,7 +17,7 @@ const Feedback = () => {
   });
   // const [feedbacks,setFeedbacks]=useState([]);
   // useEffect(()=>{
-  //   axios.get('https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/feedback').then(res=>{setFeedbacks(res.data)})
+  //   axios.get('https://management-system-server-amber.vercel.app/feedback').then(res=>{setFeedbacks(res.data)})
   // },[])
   return (
     <div className="p-6">

@@ -20,7 +20,7 @@ const EmployeeDetails = () => {
 
   useEffect(() => {
     axios
-      .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll", {
+      .get("https://management-system-server-amber.vercel.app/pay-roll", {
         params: { email: state.email },
       })
       .then((res) => {

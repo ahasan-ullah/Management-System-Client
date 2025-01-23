@@ -21,7 +21,7 @@ const Login = () => {
     const password = form.password.value;
 
     try {
-      const response = await axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", {
+      const response = await axios.get("https://management-system-server-amber.vercel.app/users", {
         params: { email },
       });
 
@@ -76,7 +76,7 @@ const Login = () => {
 
         // adding user data to database
         axios
-          .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
+          .post("https://management-system-server-amber.vercel.app/users", userData)
           .then((res) => {})
           .catch((error) => {
             Swal.fire({
@@ -96,7 +96,7 @@ const Login = () => {
         Swal.fire({
           title: "Error",
           icon: "error",
-          title: "Login Unsuccessful",
+          text: "Login Unsuccessful",
         });
       });
   };

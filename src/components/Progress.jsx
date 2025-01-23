@@ -9,7 +9,7 @@ const WorkRecords = () => {
   const [selectedMonth, setSelectedMonth] = useState("");
   useEffect(() => {
     axios
-      .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users")
+      .get("https://management-system-server-amber.vercel.app/users")
       .then((res) => {
         if (res.data) {
           setEmployees(res.data);
@@ -17,7 +17,7 @@ const WorkRecords = () => {
       })
       .catch((err) => console.error("Error fetching employees:", err));
     axios
-      .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks")
+      .get("https://management-system-server-amber.vercel.app/tasks")
       .then((res) => {
         if (res.data) {
           setWorkRecords(res.data);

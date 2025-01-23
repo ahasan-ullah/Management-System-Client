@@ -13,7 +13,7 @@ const EmployeeList = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users").then((res) => {
+    axios.get("https://management-system-server-amber.vercel.app/users").then((res) => {
       const employees = res.data.filter(user => user.role === 'Employee');
       setUsers(employees);
     });
@@ -35,7 +35,7 @@ const EmployeeList = () => {
     };
 
     axios
-      .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll", payroll)
+      .post("https://management-system-server-amber.vercel.app/pay-roll", payroll)
       .then((res) => {
         Swal.fire({
           title: "Added!",
@@ -62,7 +62,7 @@ const EmployeeList = () => {
     const updatedVerifiedStatus = !user.isVerified;
     axios
       .patch(
-        "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users",
+        "https://management-system-server-amber.vercel.app/users",
         { updatedVerifiedStatus },
         {
           params: { id: `${user._id}` },

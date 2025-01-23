@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const fetchPayrolls = async () => {
-  const { data } = await axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll");
+  const { data } = await axios.get("https://management-system-server-amber.vercel.app/pay-roll");
   return data;
 };
 
@@ -18,7 +18,7 @@ const Payroll = () => {
   });
 
   // useEffect(()=>{
-  //   axios.get('https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll').then(res=>setPayrolls(res.data))
+  //   axios.get('https://management-system-server-amber.vercel.app/pay-roll').then(res=>setPayrolls(res.data))
   // },[payrolls]);
 
 
@@ -31,7 +31,7 @@ const Payroll = () => {
 
     axios
       .patch(
-        "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll",
+        "https://management-system-server-amber.vercel.app/pay-roll",
         {data} ,
         {
           params: { id: `${id}` },

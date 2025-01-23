@@ -44,7 +44,7 @@ const Register = () => {
 
     // adding user data to database
     axios
-      .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
+      .post("https://management-system-server-amber.vercel.app/users", userData)
       .then((res) => {})
       .catch((error) => {
         Swal.fire({
@@ -88,7 +88,7 @@ const Register = () => {
     
         // adding user data to database
         axios
-          .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
+          .post("https://management-system-server-amber.vercel.app/users", userData)
           .then((res) => {})
           .catch((error) => {
             Swal.fire({
@@ -108,7 +108,7 @@ const Register = () => {
         Swal.fire({
           title: 'Error',
           icon: "error",
-          title: "Registration Unsuccessful",
+          text: "Registration Unsuccessful",
         });
       });
   };
