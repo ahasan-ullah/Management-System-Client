@@ -44,7 +44,7 @@ const Register = () => {
 
     // adding user data to database
     axios
-      .post("http://localhost:5000/users", userData)
+      .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
       .then((res) => {})
       .catch((error) => {
         Swal.fire({
@@ -88,7 +88,7 @@ const Register = () => {
     
         // adding user data to database
         axios
-          .post("http://localhost:5000/users", userData)
+          .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
           .then((res) => {})
           .catch((error) => {
             Swal.fire({

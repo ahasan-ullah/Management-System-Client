@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (user.email) {
       axios
-        .get("http://localhost:5000/users", {
+        .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", {
           params: { email: `${user.email}` },
         })
         .then((res) => {

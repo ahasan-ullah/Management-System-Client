@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import AuthContext from "../provider/AuthContext";
 
 const fetchPayments = async (email) => {
-  const { data } = await axios.get("http://localhost:5000/pay-roll", {
+  const { data } = await axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll", {
     params: { email },
   });
   return data.filter((p) => p.isPaid === "true");
@@ -23,7 +23,7 @@ const PaymentHistory = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:5000/pay-roll", {
+  //     .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/pay-roll", {
   //       params: { email: user.email },
   //     })
   //     .then((res) => {

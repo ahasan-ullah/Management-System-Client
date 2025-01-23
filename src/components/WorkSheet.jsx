@@ -13,7 +13,7 @@ const WorkSheet = () => {
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/tasks", {
+      .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks", {
         params: { email: `${user.email}` },
       })
       .then((res) => {
@@ -41,7 +41,7 @@ const WorkSheet = () => {
       email: user.email,
     };
     axios
-      .post("http://localhost:5000/tasks", taskData)
+      .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks", taskData)
       .then((res) => {
         Swal.fire({
           position: "center",
@@ -61,7 +61,7 @@ const WorkSheet = () => {
   const getTaskData = (id) => {
     setTaskId(id);
     axios
-      .get("http://localhost:5000/tasks", {
+      .get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks", {
         params: { id: `${id}` },
       })
       .then((res) => {
@@ -80,7 +80,7 @@ const WorkSheet = () => {
     };
 
     axios
-      .put("http://localhost:5000/tasks", updatedData, {
+      .put("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks", updatedData, {
         params: { id: taskId },
       })
       .then((res) => {
@@ -114,7 +114,7 @@ const WorkSheet = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/tasks`, {
+          .delete(`https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/tasks`, {
             params: { id: id },
           })
           .then((res) => {

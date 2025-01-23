@@ -21,7 +21,7 @@ const Login = () => {
     const password = form.password.value;
 
     try {
-      const response = await axios.get("http://localhost:5000/users", {
+      const response = await axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", {
         params: { email },
       });
 
@@ -76,7 +76,7 @@ const Login = () => {
 
         // adding user data to database
         axios
-          .post("http://localhost:5000/users", userData)
+          .post("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users", userData)
           .then((res) => {})
           .catch((error) => {
             Swal.fire({

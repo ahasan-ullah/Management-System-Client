@@ -9,13 +9,13 @@ const AllEmployeeList = () => {
   const [users, setUsers] = useState([]);
   const [salary, setSalary] = useState(null);
   const [email, setEmail] = useState(null);
-  const [view, setView] = useState("table"); // State for toggling view (table/card)
+  const [view, setView] = useState("table");
   const navigate = useNavigate();
   const { fireUser } = useContext(AuthContext);
 
   useEffect(() => {
     // Fetch user data from API
-    axios.get("http://localhost:5000/users").then((res) => {
+    axios.get("https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users").then((res) => {
       setUsers(res.data);
     });
   }, [users]);
@@ -25,7 +25,7 @@ const AllEmployeeList = () => {
       const HR = "HR";
       axios
         .patch(
-          "http://localhost:5000/users",
+          "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users",
           { HR },
           {
             params: { id: `${user._id}` },
@@ -48,7 +48,7 @@ const AllEmployeeList = () => {
     const fireStatus = true;
     axios
       .patch(
-        "http://localhost:5000/users",
+        "https://management-system-server-9y2z6ohsz-ahasan-ullahs-projects.vercel.app/users",
         { fireStatus },
         {
           params: { id: `${user._id}` },
