@@ -6,18 +6,29 @@ import { ImCross } from "react-icons/im";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
+const fetchEmployees = async () => {
+  const { data } = await axios.get("http://localhost:5000/users");
+  return data.filter((user) => user.role === "Employee");
+};
+
 const EmployeeList = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [salary, setSalary] = useState(null);
   const [email, setEmail] = useState(null);
   const navigate=useNavigate();
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
-      const employees = res.data.filter(user => user.role === 'Employee');
-      setUsers(employees);
-    });
-  }, [users]);
+  const { data: users, isLoading, isError, error } = useQuery({
+    queryKey: ["employees"],
+    queryFn: fetchEmployees,
+    refetchOnWindowFocus: false,
+  });
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/users").then((res) => {
+  //     const employees = res.data.filter(user => user.role === 'Employee');
+  //     setUsers(employees);
+  //   });
+  // }, [users]);
 
 
   // Handle Pay button click

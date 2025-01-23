@@ -1,11 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const fetchFeedbacks = async () => {
+  const { data } = await axios.get("http://localhost:5000/feedback");
+  return data;
+};
+
+
 const Feedback = () => {
-  const [feedbacks,setFeedbacks]=useState([]);
-  useEffect(()=>{
-    axios.get('http://localhost:5000/feedback').then(res=>{setFeedbacks(res.data)})
-  },[])
+
+  const { data: feedbacks, isLoading, isError, error } = useQuery({
+    queryKey: ["feedbacks"],
+    queryFn: fetchFeedbacks,
+    refetchOnWindowFocus: false,
+  });
+  // const [feedbacks,setFeedbacks]=useState([]);
+  // useEffect(()=>{
+  //   axios.get('http://localhost:5000/feedback').then(res=>{setFeedbacks(res.data)})
+  // },[])
   return (
     <div className="p-6">
       <h2 className="text-3xl font-bold text-center mb-4">User's Feedback</h2>

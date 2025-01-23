@@ -1,22 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import AuthContext from "../provider/AuthContext";
+
+const fetchPayments = async (email) => {
+  const { data } = await axios.get("http://localhost:5000/pay-roll", {
+    params: { email },
+  });
+  return data.filter((p) => p.isPaid === "true");
+};
 
 const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
-  const [payments, setPayments] = useState([]);
+  // const [payments, setPayments] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/pay-roll", {
-        params: { email: user.email },
-      })
-      .then((res) => {
-        const payment=res.data.filter(p=>p.isPaid==='true')
-        setPayments(payment);
-      })
-      .catch((err) => console.error(err));
-  }, [user.email]);
+
+  const { data: payments = [], isLoading, error } = useQuery({
+    queryKey: ["payments", user.email],
+    queryFn: () => fetchPayments(user.email),
+    enabled: !!user.email,
+  });
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/pay-roll", {
+  //       params: { email: user.email },
+  //     })
+  //     .then((res) => {
+  //       const payment=res.data.filter(p=>p.isPaid==='true')
+  //       setPayments(payment);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }, [user.email]);
 
   return (
     <div className="p-6">

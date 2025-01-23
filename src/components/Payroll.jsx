@@ -2,12 +2,23 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const Payroll = () => {
-  const [payrolls,setPayrolls]=useState([]);
+const fetchPayrolls = async () => {
+  const { data } = await axios.get("http://localhost:5000/pay-roll");
+  return data;
+};
 
-  useEffect(()=>{
-    axios.get('http://localhost:5000/pay-roll').then(res=>setPayrolls(res.data))
-  },[payrolls]);
+const Payroll = () => {
+  // const [payrolls,setPayrolls]=useState([]);
+
+  const { data: payrolls, isLoading, isError, error } = useQuery({
+    queryKey: ["payrolls"],
+    queryFn: fetchPayrolls,
+    refetchOnWindowFocus: false,
+  });
+
+  // useEffect(()=>{
+  //   axios.get('http://localhost:5000/pay-roll').then(res=>setPayrolls(res.data))
+  // },[payrolls]);
 
 
   const handlePay=(id)=>{
