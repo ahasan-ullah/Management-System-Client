@@ -204,32 +204,34 @@ const WorkSheet = () => {
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task) => (
-                <tr key={task._id}>
-                  <td>{task.taskType}</td>
-                  <td>{task.hourWorked}</td>
-                  <td>{task.date}</td>
-                  <td>
-                    <div className="flex">
-                      <button
-                        onClick={() => {
-                          document.getElementById("edit_modal").showModal();
-                          getTaskData(task._id);
-                        }}
-                        className="btn btn-xs md:btn-sm btn-warning mr-2"
-                      >
-                        <FaEdit /> <p className="hidden md:block">Edit</p>
-                      </button>
-                      <button
-                        onClick={() => handleDelete(task._id)}
-                        className="btn btn-xs md:btn-sm btn-error"
-                      >
-                        <MdDelete /> <p className="hidden md:block">Delete</p>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {[...tasks]
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .map((task) => (
+                  <tr key={task._id}>
+                    <td>{task.taskType}</td>
+                    <td>{task.hourWorked}</td>
+                    <td>{task.date}</td>
+                    <td>
+                      <div className="flex">
+                        <button
+                          onClick={() => {
+                            document.getElementById("edit_modal").showModal();
+                            getTaskData(task._id);
+                          }}
+                          className="btn btn-xs md:btn-sm btn-warning mr-2"
+                        >
+                          <FaEdit /> <p className="hidden md:block">Edit</p>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(task._id)}
+                          className="btn btn-xs md:btn-sm btn-error"
+                        >
+                          <MdDelete /> <p className="hidden md:block">Delete</p>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
