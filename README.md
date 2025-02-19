@@ -83,7 +83,7 @@ A comprehensive web-based solution to streamline the management of employee work
 
 ## 🚀 Live Demo  
 
-- **Frontend Live Site:** [View Here](https://example.com)  
+- **Frontend Live Site:** [View Here](https://management-system-5898a.web.app/)  
 
 ---
 
@@ -94,8 +94,8 @@ A comprehensive web-based solution to streamline the management of employee work
 2. Clone the repositories.  
 
    ```bash
-   git clone <client_repo_url>
-   git clone <server_repo_url>
+   git clone https://github.com/ahasan-ullah/Management-System-Client.git
+   git clone https://github.com/ahasan-ullah/Management-System-Server.git
 
 
 ### Admin Credentials 
