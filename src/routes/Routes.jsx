@@ -16,11 +16,13 @@ import Payroll from "../components/Payroll";
 import ContactUs from "../pages/ContactUs";
 import Feedback from "../components/Feedback";
 import Profile from "../pages/Profile";
+import ErrorPage from "../pages/ErrorPage";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
