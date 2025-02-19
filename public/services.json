@@ -3,30 +3,35 @@
     "id": 1,
     "title": "Employee Attendance",
     "description": "Monitor employee attendance and leaves seamlessly with detailed analytics and automated tracking.",
-    "icon": "bi bi-calendar-check"
+    "icon": "bi bi-calendar-check",
+    "image": "https://plus.unsplash.com/premium_photo-1664476690265-e95524e8745e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXR0ZW5kYW5jZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     "id": 2,
     "title": "Performance Management",
     "description": "Track, evaluate, and enhance employee performance with structured reviews and goal setting.",
-    "icon": "bi bi-graph-up"
+    "icon": "bi bi-graph-up",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGVyZm9ybWFuY2UlMjBNYW5hZ2VtZW50fGVufDB8fDB8fHww"
   },
   {
     "id": 3,
     "title": "Payroll Integration",
     "description": "Automate payroll calculations and tax deductions by integrating directly with employee records.",
-    "icon": "bi bi-cash-coin"
+    "icon": "bi bi-cash-coin",
+    "image": "https://images.unsplash.com/photo-1676151863834-b9b162faa8ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8UGF5cm9sbCUyMEludGVncmF0aW9ufGVufDB8fDB8fHww"
   },
   {
     "id": 4,
     "title": "Onboarding Management",
     "description": "Streamline your onboarding process to provide a smooth and efficient experience for new hires.",
-    "icon": "bi bi-person-check"
+    "icon": "bi bi-person-check",
+    "image": "https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8T25ib2FyZGluZyUyME1hbmFnZW1lbnR8ZW58MHx8MHx8fDA%3D"
   },
   {
     "id": 5,
     "title": "Reports & Analytics",
     "description": "Generate insightful reports on employee performance, attendance, and team productivity.",
-    "icon": "bi bi-bar-chart-line"
+    "icon": "bi bi-bar-chart-line",
+    "image": "https://images.unsplash.com/photo-1728044849291-69f90d443aea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UmVwb3J0cyUyMCUyNiUyMEFuYWx5dGljc3xlbnwwfHwwfHx8MA%3D%3D"
   }
 ]
