@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "position": "CEO",
+    "bio": "John is the visionary behind our company and leads us with passion and experience.",
+    "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "position": "CTO",
+    "bio": "Jane is the tech genius who ensures that our products stay ahead of the curve.",
+    "image": "https://plus.unsplash.com/premium_photo-1664298528358-790433ba0815?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "position": "Marketing Director",
+    "bio": "Alice drives our marketing strategy and leads our efforts to reach new heights.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 4,
+    "name": "Bob Brown",
+    "position": "Lead Developer",
+    "bio": "Bob is the backbone of our development team, creating the most innovative solutions.",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+  }
+]
