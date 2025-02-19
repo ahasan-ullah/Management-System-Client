@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -9,7 +10,6 @@ const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    // Fetch services from services.json (you can replace with your own file or API)
     fetch("services.json")
       .then((res) => res.json())
       .then((data) => setServices(data));
@@ -18,10 +18,23 @@ const Services = () => {
   return (
     <section className="bg-white py-16 my-20">
       <div className="container mx-auto">
-        <p className="text-center text-blue-400">Our Services</p>
-        <h2 className="text-center text-4xl font-bold mb-8">
+        <motion.p
+          className="text-center text-blue-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          Our Services
+        </motion.p>
+
+        <motion.h2
+          className="text-center text-4xl font-bold mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
+        >
           What Services We Provide
-        </h2>
+        </motion.h2>
 
         {/* Swiper Component */}
         <Swiper
@@ -38,9 +51,20 @@ const Services = () => {
           }}
           className="swiper-container"
         >
-          {services.map((service) => (
+          {services.map((service, index) => (
             <SwiperSlide key={service.id}>
-              <div className="p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+              <motion.div
+                className="p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.1 }} // Staggered Animation
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 10,
+                  transition: { duration: 0.3 }, // Hover scale and rotation
+                }}
+              >
                 <div className="mb-6">
                   <img
                     src={service.image}
@@ -52,10 +76,17 @@ const Services = () => {
                   <div className="text-4xl text-primary mb-4">
                     <i className={service.icon}></i>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
+                  <motion.h3
+                    className="text-2xl font-semibold mb-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                  >
+                    {service.title}
+                  </motion.h3>
                   <p className="text-gray-600">{service.description}</p>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
