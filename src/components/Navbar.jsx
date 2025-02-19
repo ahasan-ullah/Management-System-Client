@@ -82,9 +82,6 @@ const Navbar = () => {
                 <Link to={'/dashboard/profile'}>Profile</Link>
               </li>
               <li>
-                <button>Overview</button>
-              </li>
-              <li>
                 <button onClick={handleLogin}>Logout</button>
               </li>
             </ul>
