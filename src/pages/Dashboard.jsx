@@ -61,9 +61,9 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="mt-20 max-w-7xl mx-auto">
+    <div>
       <Navbar />
-      <div className="md:grid md:grid-cols-12">
+      <div className="md:grid md:grid-cols-12 mt-20 max-w-7xl mx-auto">
         <div className="md:col-span-2 p-3">
           <ul className="flex md:flex-col md:mt-20 justify-center">{links}</ul>
         </div>
