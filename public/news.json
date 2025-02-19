@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "New Feature: AI-Powered Analytics",
+    "date": "2025-02-19",
+    "excerpt": "We're excited to launch AI analytics to help businesses make data-driven decisions.",
+    "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?q=80&w=1148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 2,
+    "title": "System Update v2.1 Released",
+    "date": "2025-02-10",
+    "excerpt": "Our latest update brings improved performance, enhanced security, and new integrations.",
+    "image": "https://plus.unsplash.com/premium_photo-1721955487786-76802cbf0812?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXBkYXRlfGVufDB8fDB8fHww"
+  },
+  {
+    "id": 3,
+    "title": "How Manage Us Corp Improved Efficiency",
+    "date": "2025-02-05",
+    "excerpt": "Learn how our management system helped XYZ Corp automate their workflow.",
+    "image": "https://plus.unsplash.com/premium_photo-1682431791187-8e434e3ac014?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzaW5lc3xlbnwwfHwwfHx8MA%3D%3D"
+  }
+]
