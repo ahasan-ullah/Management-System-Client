@@ -16,7 +16,7 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="bg-white py-16 my-20">
+    <section className="bg-white mt-20">
       <div className="container mx-auto">
         <motion.p
           className="text-center text-blue-400"

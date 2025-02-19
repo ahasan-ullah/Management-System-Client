@@ -12,7 +12,7 @@ const OurTeam = () => {
   }, []);
 
   return (
-    <section className="py-16">
+    <section className="mt-20">
       <div className="container mx-auto px-6 text-center">
         <motion.p
           className="text-blue-400 text-lg"

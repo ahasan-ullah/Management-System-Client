@@ -10,7 +10,7 @@ const Faqs = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-base-100">
+    <section className="mt-20">
       <div className="container mx-auto text-center">
         {/* Heading */}
         <p className="text-center text-blue-400">FAQs</p>

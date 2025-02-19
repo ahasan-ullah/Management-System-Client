@@ -12,7 +12,7 @@ const LatestNews = () => {
   }, []);
 
   return (
-    <div className="mx-auto px-6">
+    <div className="mx-auto px-6 mt-20">
       <motion.p
         className="text-center text-blue-400"
         initial={{ opacity: 0 }}

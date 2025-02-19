@@ -16,10 +16,10 @@ const Testimonials = () => {
       .then((data) => setReviews(data));
   }, []);
   return (
-    <section className="my-20">
+    <section className="mt-20">
       <p className="text-center text-blue-400">Testimonials</p>
       <h2 className="text-center text-4xl font-bold">What Our Clients Says</h2>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper navigation={true} modules={[Navigation]} className="mySwiper -mt-10">
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
             <div className="m-24 flex flex-col items-center space-y-4">

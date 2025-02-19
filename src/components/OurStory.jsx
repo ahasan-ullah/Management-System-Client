@@ -1,7 +1,7 @@
 import storyImage from "../assets/our-story.jpg";
 const OurStory = () => {
   return (
-    <div className="my-5">
+    <div>
       <p className="text-center text-blue-400">Our Story</p>
       <h2 className="text-center text-4xl font-bold">
         Behind The Success
