@@ -79,13 +79,13 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <button onClick={handleLogin}>Logout</button>
-              </li>
-              <li>
-                <button>Profile</button>
+                <Link to={'/dashboard/profile'}>Profile</Link>
               </li>
               <li>
                 <button>Overview</button>
+              </li>
+              <li>
+                <button onClick={handleLogin}>Logout</button>
               </li>
             </ul>
           </div>

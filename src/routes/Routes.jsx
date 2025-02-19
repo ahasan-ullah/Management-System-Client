@@ -15,6 +15,7 @@ import AllEmployeeList from "../components/AllEmployeeList";
 import Payroll from "../components/Payroll";
 import ContactUs from "../pages/ContactUs";
 import Feedback from "../components/Feedback";
+import Profile from "../pages/Profile";
 
 const routes = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/feedback",
         element: <Feedback></Feedback>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile></Profile>,
       },
     ],
   },
