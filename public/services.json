@@ -2,14 +2,14 @@
   {
     "id": 1,
     "title": "Employee Attendance",
-    "description": "Monitor employee attendance and leaves seamlessly with detailed analytics and automated tracking.",
+    "description": "Monitor employee attendance with detailed analytics and automated tracking.",
     "icon": "bi bi-calendar-check",
     "image": "https://plus.unsplash.com/premium_photo-1664476690265-e95524e8745e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXR0ZW5kYW5jZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     "id": 2,
     "title": "Performance Management",
-    "description": "Track, evaluate, and enhance employee performance with structured reviews and goal setting.",
+    "description": "Track, evaluate, and enhance employee performance with structured reviews",
     "icon": "bi bi-graph-up",
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGVyZm9ybWFuY2UlMjBNYW5hZ2VtZW50fGVufDB8fDB8fHww"
   },
